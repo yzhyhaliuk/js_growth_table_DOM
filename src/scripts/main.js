@@ -40,9 +40,9 @@ buttons.forEach((button) => {
     if (e.target.classList.contains('remove-row')) {
       const rows = field.querySelectorAll('tr');
 
-      if (rows.length > 2) {
-        field.rows[rows.length - 1].remove();
-      } else {
+      field.rows[rows.length - 1].remove();
+
+      if (field.rows.length === 2) {
         e.target.disabled = true;
       }
     }
@@ -55,7 +55,9 @@ buttons.forEach((button) => {
 
           row.removeChild(lastCell);
         }
-      } else {
+      }
+
+      if (field.rows[0].cells.length === 2) {
         e.target.disabled = true;
       }
     }
